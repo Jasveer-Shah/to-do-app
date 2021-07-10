@@ -1,24 +1,19 @@
-import logo from './logo.svg';
+
 import './App.css';
 
+import React, { useState } from 'react'
+import Todos from './components/Todos'
+import TodoContext from './utils/TodoContext';
 function App() {
-  return (
+ 
+  const [todos, setTodos] = useState([]);
+  
+   return (
+    <TodoContext.Provider value={{todos, setTodos}} >
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+          <Todos/>
     </div>
+    </TodoContext.Provider >
   );
 }
 
